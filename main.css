@@ -1,0 +1,391 @@
+@charset "UTF-8";
+/* すべての画面を最初は表示しない */
+.view {
+  display: none;
+}
+
+/**
+ * ------------------
+ * 最初のローディング表示
+ * ------------------
+ */
+#loading {
+  display: block;
+  position: relative;
+  height: 100vh;
+}
+
+.initial-loading-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -23px;
+  font-size: 46px;
+  animation: spin 2s linear infinite;
+}
+
+/* 回転するアニメーション */
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/**
+ * ----------
+ * ログイン画面
+ * ----------
+ */
+
+  
+
+#login {
+  padding-top: 51px;
+}
+
+#login__help {
+  display: none;
+}
+#login__submit-butto > .btn btn-success  {
+   border-color: rgba(0, 0, 0, 0.76);
+}
+
+/**
+ * ----------
+ * cafe一覧画面
+ * ----------
+ */
+
+#cafe-template {
+  display: none;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+#header {
+  padding: 0 0.5em;
+  display: flex;
+  width: 100%;
+  height: 60px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+
+#logo {
+  font-family: 'Sawarabi Mincho', sans-serif;
+  color: rgba(0, 0, 0, 0.76);
+}
+
+button:hover > a {
+  color: white;
+}
+
+.btn-outline {
+  color: rgba(0, 0, 0, 0.76);
+  border: solid 2px rgb(132 100 8 / 65%);
+  background-color: rgb(132 100 8 / 35%)
+}
+.btn-outline:hover {
+  color: white;
+  background-color: rgb(132 100 8 / 65%);
+}
+
+
+.add-button {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.56);
+  font-size: 32px;
+  font-family: 'Sawarabi Mincho', sans-serif;
+}
+.add-button:hover {
+  text-decoration: none;
+}
+.add-button:focus {
+  text-decoration: none;
+}
+.modal-title {
+  font-family: 'Sawarabi Mincho', sans-serif;
+  color: rgba(0, 0, 0, 0.76);
+}
+.modal-body {
+  font-family: 'Sawarabi Mincho', sans-serif;
+  color: rgba(0, 0, 0, 0.76);
+}
+.btn-success {
+    color: #fff;
+    background-color: rgb(132 100 8 / 65%);
+    border-color: rgba(0, 0, 0, 0.76);
+}
+.btn-success:hover,
+.btn-success:active,
+.btn-success:focus {
+    color: #fff !important;
+    background-color: rgb(132 100 8 / 85%) !important;
+    border-color: rgba(0, 0, 0, 0.76) !important;
+}
+.btn-success:focus {
+    box-shadow: 0 0 0 0.2rem rgb(132 100 8 / 50%);
+}
+.custom-file-input:focus~.custom-file-label {
+    box-shadow: 0 0 0 0.2rem rgb(132 100 8 / 50%);
+}
+#submit_add_cafe {
+   border-color: rgba(0, 0, 0, 0.76);
+   background-color: rgb(132 100 8 / 65%) !important;
+   display: inline-block;
+  padding: 0.6em 2em;
+  margin: 0 0 1em;;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+#submit_add_cafe:hover{
+  opacity: 0.6;
+}
+.btn-flat-border {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.76);
+  border: solid 1px rgba(0, 0, 0, 0.76);
+  border-radius: 3px;
+  transition: .4s;
+  background: white;
+  font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+.btn-flat-border:hover {
+  background: rgb(132 100 8 / 65%);
+  color: white;
+}
+.form-control:focus {
+  border-color: rgb(132 100 8 / 65%);
+  box-shadow: 0 0 0 0.2rem rgb(132 100 8 / 25%);
+}
+
+#cover {
+  color: white;
+  height: 100vh;
+  background-size: cover;
+  background-image: url("./images/DSC00223.jpeg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  background-color: rgba(221,221,221,0.4);
+  background-blend-mode: lighten;
+}
+
+#cover__title {
+  font-size: 66px;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 10px;
+  font-family: 'Sawarabi Mincho', sans-serif;
+  color: rgba(0, 0, 0, 0.76);
+  
+}
+
+#main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#cafe-list {
+  margin: 20px auto;
+}
+
+.cafe-item {
+  width: calc(100% - 30px);
+  margin: 15px;
+  float: left;
+  background-color: white;
+  border: solid 1px #ddd;
+  display: flex;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(255,255,255,0.8);
+  background-blend-mode: lighten;
+  background-attachment: fixed;
+} 
+.cafe-item:hover {
+  background-color: rgba(255,255,255,0.6);
+}
+
+.cafe-item__image-wrapper {
+  width: 270px;
+  height: 270px;
+  padding: 10px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.cafe-item__image {
+  max-height: 250px;
+  max-width: 250px;
+  vertical-align: middle;
+}
+
+.cafe-item__detail {
+  padding: 30px;
+  border-left: solid 1px #ddd;
+  width: 100%;
+  position: relative;
+}
+
+.cafe-item__caption {
+  width: 5em;
+  display: inline-block;
+  text-align: right;
+  margin: 10px;
+  font-size: 18px;
+  font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+.cafe-item__title {
+  margin: 0 auto;
+  height: 36px;
+  text-align: left;
+  overflow: hidden;
+  font-family: 'Sawarabi Mincho', sans-serif;
+}
+.cafe-item__features {
+  margin: 0 auto;
+  height: 36px;
+  text-align: left;
+  overflow: hidden;
+  font-family: 'Sawarabi Mincho', sans-serif;
+}
+.cafe-item__businesshours {
+  margin: 0 auto;
+  height: 36px;
+  text-align: left;
+  overflow: hidden;
+  font-family: 'Sawarabi Mincho', sans-serif;
+}
+.cafe-item__address {
+  margin: 0 auto;
+  height: 36px;
+  text-align: left;
+  overflow: hidden;
+  font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+.cafe-item__delete-wrapper {
+  margin-top: 5px;
+  text-align: right;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+}
+
+.cafe-item__delete {
+  color: #dc3545;
+  background-color: transparent;
+  border-color: #dc3545;
+}
+.cafe-item__delete:hover {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+.cafe-item__delete:focus {
+  outline-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+}
+
+/**
+ * -----------------
+ * cafe情報追加モーダル
+ * -----------------
+ */
+
+#add-cafe__help {
+  display: none;
+}
+
+.custom-file-label::after {
+  content: "参照";
+}
+
+@media screen and (max-width:375px) {
+  #cover__title {
+    font-size: 26px;
+  }
+  #logo {
+    font-size: 16px;
+  }
+  #cover {
+    width: 100%;
+    background-size: cover;
+  }
+  .add-button {
+   font-size: 14px;
+  }
+  .cafe-item {
+  display: block;
+  }
+  .cafe-item img {
+    margin: 35px;
+  }
+  .cafe-item__caption {
+    font-size: 7px;
+  }
+  .cafe-item__title {
+    font-size: 7px;
+  }
+  .cafe-item__features {
+    font-size: 7px;
+  }
+  .cafe-item__businesshours {
+    font-size: 7px;
+  }
+  .cafe-item__address {
+    font-size: 7px;
+  }
+}
+  @media screen and (max-width:768px) {
+    #cover__title {
+    font-size: 46px;
+  }
+  #logo {
+    font-size: 26px;
+  }
+  #cover {
+    width: 100%;
+    background-size: cover;
+  }
+  .add-button {
+   font-size: 24px;
+  }
+  .cafe-item {
+  display: block;
+  }
+  .cafe-item__caption {
+    font-size: 14px;
+  }
+  .cafe-item__title {
+    font-size: 14px;
+  }
+  .cafe-item__features {
+    font-size: 14px;
+  }
+  .cafe-item__businesshours {
+    font-size: 14px;
+  }
+  .cafe-item__address {
+    font-size: 14px;
+  }
+  }
+
+

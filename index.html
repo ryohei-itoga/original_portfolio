@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  
+  <link rel="icon" href="./images/favicon (1).ico">
+  
+  <title>Collection`s cafe</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- 自サイトのCSS -->
+  <link rel="stylesheet" href="main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- 最初のローディング表示 -->
+  <section id="loading" class="view">
+    <i class="initial-loading-icon fas fa-sync" aria-hidden="true"></i>
+  </section>
+  <!-- /#loading -->
+
+  <!-- ログイン画面 -->
+  <section id="login" class="view">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-10 col-md-8 col-lg-6">
+          <form id="login-form">
+            <div class="form-group login__email">
+              <label for="login-email" class="col-form-label">
+                メールアドレス
+              </label>
+              <div>
+                <input id="login-email" type="email" class="form-control" required>
+              </div>
+            </div>
+            <div class="form-group login__password">
+              <label for="login-password" class="col-form-label">
+                パスワード
+              </label>
+              <div>
+                <input id="login-password" type="password" class="form-control" required>
+              </div>
+            </div>
+            <div id="login__help" class="alert alert-danger"></div>
+            <div class="form-group login__submit">
+              <div>
+                <button id="login__submit-button" type="submit" class="btn btn-success">
+                  ログイン
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /#login -->
+
+  <!-- cafe一覧画面 -->
+  <section id="cafeshelf" class="view">
+    <header>
+      <div id="header">
+        <div id="logo">
+          <h1 id="logo">Collection`s cafe</h1>
+        </div>
+        
+        <button class="btn-flat-border logout-button">
+          <i class="fa fa-caret-right"></i>
+          ログアウト
+        </button>
+      </div>
+    </header>
+    <div id="cover">
+      <h1 id="cover__title">Collection`s cafe</h1>
+       <button type="button" class="btn btn-outline">
+      <a href="#add-cafe-modal" data-toggle="modal" class="add-button">
+          <i class="far fa-thumbs-up"aria-hidden="true"></i>
+          Cafeの登録
+        </a>
+        </button>
+    </div>
+    <div class="wrapper">
+      <div id="main">
+        <div id="cafe-list" class="clearfix"></div>
+      </div>
+    </div>
+  </section>
+  <!-- /#cafelist -->
+
+  <div id="cafe-template">
+    <!-- cafe一覧のテンプレート -->
+    <div class="cafe-item" id="cafe-id--MSv2xRZNxAuXfaerzja">
+      <div class="cafe-item__image-wrapper">
+        <img class="cafe-item__image" alt="">
+      </div>
+      <div class="cafe-item__detail">
+        <div>
+          <span class="cafe-item__caption">店名 :</span>
+          <span class="cafe-item__title"></span>
+        </div>
+        <div>
+          <span class="cafe-item__caption">特徴 :</span>
+          <span class="cafe-item__features"></span>
+        </div>
+        <div>
+          <span class="cafe-item__caption">営業時間 :</span>
+          <span class="cafe-item__businesshours"></span>
+        </div>
+        <div>
+          <span class="cafe-item__caption">住所 :</span>
+          <span class="cafe-item__address"></span>
+        </div>
+        <div class="cafe-item__delete-wrapper">
+          <button class="btn btn-danger cafe-item__delete">
+            <svg class="svg-inline--fa fa-trash-alt fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"></path></svg>
+            削除
+          </button>
+        </div>
+      </div>
+    </div>
+   </div>
+     <!-- cafe一覧情報追加モーダル -->
+  <div id="add-cafe-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Cafeの登録</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body m-1">
+          <form id="cafe-form">
+            <div class="form-group row">
+              <label for="add-cafe-title" class="col-md-3  col-form-label">店名</label>
+              <div class="col-md-9">
+                <input id="add-cafe-title" type="text" class="form-control" placeholder="〇〇カフェ" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="add-cafe-features" class="col-md-3  col-form-label">特徴</label>
+              <div class="col-md-9">
+                <input id="add-cafe-features" type="text" class="form-control" placeholder="ピザが美味しい"required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="add-cafe-businesshours" class="col-md-3  col-form-label">営業時間</label>
+              <div class="col-md-9">
+                <input id="add-cafe-businesshours" type="text" class="form-control" placeholder="10:00〜19:00" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="add-cafe-address" class="col-md-3  col-form-label">住所</label>
+              <div class="col-md-9">
+                <input id="add-cafe-address" type="text" class="form-control" placeholder="東京都〇〇区〇〇-〇〇"required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-3">画像</div>
+              <div class="col-md-9">
+                <div class="custom-file">
+                  <input id="add-cafe-image" type="file" accept=".jpg,.jpeg,.png,.gif, image/jpeg,image/png,image/gif"
+                    class="custom-file-input" required>
+                  <label id="add-cafe-image-label" class="custom-file-label" for="add-cafe-image">ファイルを選択</label>
+                </div>
+              </div>
+            </div>
+            <div id="add-cafe__help" class="alert alert-danger"></div>
+            <button id="submit_add_cafe" type="submit" class="btn btn-default btn-success btn-block">
+              保存する
+            </button>
+        </div>
+        </form>
+        </div>
+      </div>
+    </div>
+    </div>
+  <!-- Firebaseのセットアップコード（下記のSDKのバージョンは6.2.0） -->
+  <!-- The core Firebase JS SDK is always required and must be listed first 
+    (中心となるFirebase SDKです。常に必要で、最初に記述する必要があります) -->
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#config-web-app
+        (使いたいFirebaseサービス用のSDKを加えます) -->
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-storage.js"></script>
+
+  <!-- apiKeyなどは、ご自身の環境のものに合わせてください -->
+<script>
+var firebaseConfig = {
+  apiKey: "AIzaSyA3mb3TKNSmn5PA2HN4O1yH5_cvEABrpak",
+  authDomain: "realtime-chat-9609b.firebaseapp.com",
+  databaseURL: "https://realtime-chat-9609b-default-rtdb.firebaseio.com",
+  projectId: "realtime-chat-9609b",
+  storageBucket: "realtime-chat-9609b.appspot.com",
+  messagingSenderId: "178401954443",
+  appId: "1:178401954443:web:e688fd6810f6fad404628e",
+  measurementId: "G-5E2BWGCQVY"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+</script>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  <!-- Popper.js, 次に Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script src="main.js"></script>
+
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+
+</body>
+
